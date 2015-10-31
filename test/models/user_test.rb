@@ -27,6 +27,12 @@ class UserTest < ActiveSupport::TestCase
   test "user invalid with improper email" do
     @user.email = "thisaintnoemail"
     refute @user.valid?
+    
+    @user.email = "doug@notemailin"
+    refute @user.valid?
+
+    @user.email = "no chance.com"
+    refute @user.valid?
   end
 
   test "user invalid without social" do
